@@ -131,13 +131,37 @@ local wodflasks = {
         SpellName(156077), -- Draenic Stamina Flask
         SpellName(156070), -- Draenic Intellect Flask
         SpellName(156071), -- Draenic Strength Flask
-	SpellName(176151), -- Whispers of Insanity
+		SpellName(176151), -- Whispers of Insanity
+		SpellName(193456), -- Blick der legion
 }
+
+local legionflasks = {
+        SpellName(188031), -- flask-of-the-whispered-pact
+        SpellName(188033), -- flask-of-the-seventh-demon
+        SpellName(188034), -- flask-of-the-countless-armies
+        SpellName(188035), -- Flask of Greater Draenic Strength
+}
+
+local bfaflasks = {
+        SpellName(251839), -- flask-of-the-undertow
+        SpellName(251838), -- flask-of-the-vast-horizon
+        SpellName(251837), -- flask-of-endless-fathoms
+        SpellName(251836), -- flask-of-the-currents
+}
+
+local shadowlandsflasks = {
+        SpellName(307185), -- Spectral Flask of Power
+        SpellName(307187), -- Spectral Stamina Flask
+		SpellName(307166), -- eternal-flask
+}
+
 
 local augmentrunes = {
         SpellName(175439), -- Stout Augment Rune
         SpellName(175457), -- Focus Augment Rune
         SpellName(175456), -- Hyper Augment Rune
+		SpellName(224001), -- Defiled Augmentation (Legions Rune)
+		SpellName(270058), -- Battle-Scarred Augment Rune
 }
 
 local tbcbelixirs = {
@@ -230,7 +254,7 @@ local mopgelixirs = {
 local oldflasks = {}
 local oldbelixirs = {}
 local oldgelixirs = {}
-for _,t in pairs({tbcflasks,wotlkflasks,cataflasks,mopflasks}) do
+for _,t in pairs({tbcflasks,wotlkflasks,cataflasks,mopflasks,wodflasks,legionflasks,bfaflasks}) do
    for _,v in ipairs (t) do
 	table.insert(oldflasks,v)
    end
@@ -247,12 +271,12 @@ for _,t in pairs({tbcgelixirs,wotlkgelixirs,catagelixirs,mopgelixirs}) do
 end
 
 -- last expansion flixirs
-local lastflasks   = mopflasks
+local lastflasks   = bfaflasks
 local lastbelixirs = mopbelixirs
 local lastgelixirs = mopgelixirs
 
 -- current expansion flixirs
-local currflasks   = wodflasks
+local currflasks   = shadowlandsflasks
 local currbelixirs = {}
 local currgelixirs = {}
 
@@ -277,8 +301,36 @@ local allfoods = {
 	SpellName(44106), -- "Well Fed" from Brewfest
 	SpellName(43730), -- Electrified
 	SpellName(43722), -- Enlightened
-	SpellName(25661), -- Increased Stamina
+	SpellName(25661), -- Increased Stamina	
 	SpellName(25804), -- Rumsey Rum Black Label
+	SpellName(192002), -- Food (eating - Legion)
+	SpellName(257422), -- Increased Versatility Mon'Dazi
+	SpellName(257424), -- Increased Versatility spiced snapper
+	SpellName(257413), -- Increased Haste ravenberry-tarts
+	SpellName(257415), -- Increased Haste swamp-fish-n-chips
+	SpellName(257408), -- Increased critical strike Kul Tiramisu
+	SpellName(257410), -- Increased critical strike Honey-Glazed Haunches
+	SpellName(257418), -- Increased mastery Loa Loaf
+	SpellName(257420), -- Increased mastery Sailor's Pie	
+	SpellName(259454), -- Bountiful Captain's Feast agility
+	SpellName(259455), -- Bountiful Captain's Feast intellect
+	SpellName(259457), -- Bountiful Captain's Feast stamina
+	SpellName(257427), -- Bountiful Captain's Feast strength	
+	SpellName(259448), -- Galley Banquet agility
+	SpellName(259449), -- Galley Banquet intellect
+	SpellName(259453), -- Galley Banquet stamina
+	SpellName(259452), -- Galley Banquet strength
+	
+	SpellName(259454), -- (agility) Feast of Gluttonous Hedonism
+	SpellName(308434), -- (critical) Phantasmal Souffle and Fries
+	SpellName(308488), -- (haste) Tenebrous Crown Roast Aspic
+	SpellName(308506), -- (mastery) Crawler Ravioli with Apple Sauce
+	SpellName(308525), -- (stamina) Banana Beef Pudding
+	SpellName(308514), -- (versatility) Steak a la Mode
+	SpellName(327851), -- (periodicaly heal out of combat) Seraph Tenders
+	SpellName(308637), -- (periodicaly damage) Smothered Shank
+	SpellName(327715), -- (speed) Fried Bonefish
+
 }
 
 local fortitude = {
@@ -319,7 +371,6 @@ local masterybuff = {
 local critbuff = {
 	SpellName(116781),	-- Legacy of the White Tiger
 	SpellName(17007),	-- Leader of the Pack
-	SpellName(1459),	-- Arcane Brilliance
 	SpellName(61316),	-- Dalaran Brilliance
 	SpellName(24604),	-- Wolf, Furious Howl
 	SpellName(90309),	-- Devilsaur, Terrifying Roar
@@ -347,7 +398,6 @@ local msbuff = { -- multistrike
 	SpellName(166916),	-- Windflurry
 	SpellName(49868),	-- Mind Quickening
 	SpellName(113742),	-- Swiftblade's Cunning
-	SpellName(109773),	-- Dark Intent
 	SpellName(50519),	-- Bat, Sonic Focus
 	SpellName(159736), 	-- Chimaera, Duality
 	SpellName(57386),	-- Clefthoof, Wild Strength
@@ -372,10 +422,8 @@ local vsbuff = { -- versatility
 	SpellName(172967),	-- Lone Wolf: Versatility of the Ravager
 }
 
-local spbuff = { 
-	SpellName(1459),	-- Arcane Brilliance
-	SpellName(61316),	-- Dalaran Brilliance
-	SpellName(109773),	-- Dark Intent
+local spbuff = {
+	SpellName(61316),	-- Dalaran Brilliance	
 	SpellName(126309),	-- Water Strider, Still Water
 	SpellName(90364),	-- Silithid, Qiraji Fortitude
 	SpellName(128433),	-- Serpent, Serpent's Cunning
@@ -405,8 +453,8 @@ local dkpresences = {
 local defensive_stance = SpellName(71)
 local warrstances = {
 	defensive_stance,
-	SpellName(2457), -- Battle Stance
-	SpellName(156291), -- Gladiator Stance (prot only)
+--	SpellName(2457), -- Battle Stance
+	--SpellName(156291), -- Gladiator Stance (prot only)
 }
 
 local scrollofagility = {
@@ -435,7 +483,7 @@ scrollofprotection.shortname = L["Prot"]
 
 local roguewepbuffs = {
 	BS[2818],  	-- Deadly Poison
-	BS[157584], 	-- Instant Poison (Combat only, replaces Deadly)
+--	BS[157584], 	-- Instant Poison (Combat only, replaces Deadly)
 	BS[8679],  	-- Wound Poison
 	--[[ -- Non-lethal poisons: (don't check)
 	BS[3409],  	-- Crippling Poison
@@ -678,7 +726,7 @@ local BF = {
 		main = function(self, name, class, unit, raid, report)
 			if unit.isdead then return end
 			if not unit.hasmana then return end
-			if UnitMana(unit.unitid)/UnitManaMax(unit.unitid) < 0.8 then
+			if UnitPower(unit.unitid,0)/UnitPowerMax(unit.unitid,0) < 0.8 then
 				table.insert(report.manalist, name)
 			end
 		end,
@@ -920,75 +968,6 @@ local BF = {
 		other = true,
 	},
 
-	cheetahpack = {
-		order = 900,
-		list = "cheetahpacklist",
-		check = "checkcheetahpack",
-		default = true,
-		defaultbuff = false,
-		defaultwarning = true,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = true,
-		selfonlybuff = true,
-		timer = false,
-		class = { HUNTER = true, },
-		chat = L["Aspect Cheetah/Pack On"],
-		main = function(self, name, class, unit, raid, report)
-			if class == "HUNTER" then
-				report.checking.cheetahpack = true
-				for _, v in ipairs(badaspects) do
-					if unit.hasbuff[v] 
-					   and not (
-					     v == SpellName(cheetah_spellid)
-					     and (not unit.talents or 
-					          unit.tinfo.glyphs[cheetah_glyphid]) -- negates the daze
-					   ) then
-						local caster = unit.hasbuff[v].caster
-						if not caster or #caster == 0 then
-						   caster = name -- caster is nil when out of range
-						end
-						-- only report each caster once
-						report.cheetahpacklist[caster] = caster.."("..v..")"
-					end
-				end
-			end
-		end,
-		post = function(self, raid, report)
-		        local l = report.cheetahpacklist
-			local gotone = true
-			while gotone do
-			  gotone = false
-		          for k,v in pairs(l) do -- convert to numeric list for sorting
-			    if type(k) ~= "number" then
-			      l[k] = nil
-			      table.insert(l,v) 
-			      gotone = true
-			      break
-			    end
-			  end
-			end
-			table.sort(l)
-		end,
-		icon = BSI[5118], -- Aspect of the Cheetah
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.cheetahpacklist, profile.checkcheetahpack, report.checking.cheetahpack or false, report.cheetahpacklist)
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "cheetahpack")
-		end,
-		tip = function(self)
-			addon:Tooltip(self, L["Aspect of the Cheetah or Pack is on"], report.cheetahpacklist)
-		end,
-		whispertobuff = nil,
-		singlebuff = nil,
-		partybuff = nil,
-		raidbuff = nil,
-	},
-
 	oldflixir = {
 		order = 895,
 		list = "oldflixirlist",
@@ -1054,156 +1033,10 @@ local BF = {
 		consumable = true,
 	},
 
-	righteousfury = {
-		order = 310,
-		list = "righteousfurylist",
-		check = "checkrighteousfury",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = true,
-		selfonlybuff = true,
-		timer = false,
-		class = { PALADIN = true, },
-		chat = BS[25780], -- Righteous Fury
-		main = function(self, name, class, unit, raid, report)
-			if class == "PALADIN" and raid.classes.PALADIN[name].spec == 2 then
-					report.checking.righteousfury = true
-					if not unit.hasbuff[BS[25780]] then -- Righteous Fury
-						table.insert(report.righteousfurylist, name)
-					end
-			end
-		end,
-		post = nil,
-		icon = BSI[25780], -- Righteous Fury
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.righteousfurylist, profile.checkrighteousfury, report.checking.righteousfury or false, report.righteousfurylist)
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "righteousfury", BS[25780]) -- Righteous Fury
-		end,
-		tip = function(self)
-			addon:Tooltip(self, L["Protection Paladin with no Righteous Fury"], report.righteousfurylist)
-		end,
-		whispertobuff = nil,
-		singlebuff = nil,
-		partybuff = nil,
-		raidbuff = nil,
-	},
+	
 
 
-	earthshield = {
-		order = 365,
-		list = "earthshieldslackers",
-		check = "checkearthshield",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = false,
-		timer = false,
-		class = { SHAMAN = true, },
---		chat = BS[974],  -- Earth Shield
-		chat = function(report, raid, prefix, channel)
-			prefix = prefix or ""
-			if report.checking.earthshield then
-				if # report.earthshieldslackers > 0 then
-					addon:Say(prefix .. "<" .. L["Missing "] .. BS[974] .. ">: " .. table.concat(report.tanksneedingearthshield, ", "), nil, nil, channel)  -- Earth Shield
-					addon:Say(L["Slackers: "] .. table.concat(report.earthshieldslackers, ", "))
-				end
-			end
-		end,
-		pre = function(self, raid, report)
-			initreporttable("tanksneedingearthshield")
-			initreporttable("tanksgotearthshield")
-			initreporttable("shamanwithearthshield")
-			initreporttable("haveearthshield")
-			initreporttable("earthshieldslackers")
-		end,
-		main = function(self, name, class, unit, raid, report)
-			if raid.ClassNumbers.SHAMAN < 1 then
-				return
-			end
-			if class == "SHAMAN" then
-				if raid.classes.SHAMAN[name].spec == 3 then
-					table.insert(report.shamanwithearthshield, name)
-				end
-			end
-			local hasbuff = unit.hasbuff[BS[974]] -- Earth Shield
-			if hasbuff then
-				report.haveearthshield[name] = hasbuff.caster
-			end
-			if unit.istank or
-			       GetPartyAssignment("MAINTANK",unit.unitid) then -- allow earthshield on non-traditional tanks
-					report.checking.earthshield = true
-					if hasbuff then
-						table.insert(report.tanksgotearthshield, name)
-					else
-						table.insert(report.tanksneedingearthshield, name)
-					end
-			end
-		end,
-		post = function(self, raid, report)
-			local numberneeded = #report.tanksneedingearthshield
-			local numberavailable = #report.shamanwithearthshield - #report.tanksgotearthshield
-			if #report.tanksneedingearthshield > 0 and #report.shamanwithearthshield > 0 then
-				report.checking.earthshield = true
-			end
-			if numberneeded > 0 and numberavailable > 0 then
-				for _, name in ipairs(report.shamanwithearthshield) do
-					local found = false
-					for _, caster in pairs(report.haveearthshield) do
-						if caster == name then
-							found = true
-							break
-						end
-					end
-					if not found then
-						table.insert(report.earthshieldslackers, name)
-					end
-				end
-			else
-				wipe(report.tanksneedingearthshield)
-			end
-		end,
-		icon = BSI[974],  -- Earth Shield
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.tanksneedingearthshield, profile.checkearthshield, report.checking.earthshield or false, addon.BF.earthshield:buffers())
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "earthshield", BS[974], true)  -- Earth Shield
-		end,
-		tip = function(self)
-			addon:Tooltip(self, L["Tank missing Earth Shield"], report.tanksneedingearthshield, nil, addon.BF.earthshield:buffers(), report.earthshieldslackers, nil, nil, nil, report.haveearthshield)
-		end,
-		singlebuff = true,
-		partybuff = false,
-		raidbuff = false,
-		whispertobuff = function(reportl, prefix)
-			for _,name in pairs(report.earthshieldslackers) do
-				addon:Say(prefix .. "<" .. L["Missing "] .. BS[974] .. ">: " .. table.concat(report.tanksneedingearthshield, ", "), name)  -- Earth Shield
-			end
-		end,
-		buffers = function()
-			local theshamans = {}
-			for name,rcn in pairs(raid.classes.SHAMAN) do
-				if rcn.spec == 3 then
-					table.insert(theshamans, name)
-				end
-			end
-			return theshamans
-		end,
-		singletarget = true,
-	},
+	
 
 	soulstone = {
 		order = 860,
@@ -1692,405 +1525,7 @@ local BF = {
 		partybuff = nil,
 		consumable = true,
 	},
-
-	spbuff = {
-		order = 416,
-		list = "spbufflist",
-		check = "checkspbuff",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = false,
-		timer = false,
-		core = true,
-		class = { MAGE = true, WARLOCK = true },
-		chat = STAT_SPELLPOWER, -- "Spell Power"
-		pre = nil,
-		buffinfo = { { "MAGE", 1459 }, { "WARLOCK", 109773 } },
-		main = function(self, name, class, unit, raid, report)
-			if raid.ClassNumbers.MAGE > 0 or  raid.ClassNumbers.WARLOCK > 0 then
-				report.checking.spbuff = true
-				if class ~= "ROGUE" and class ~= "WARRIOR" and class ~= "DEATHKNIGHT" and class ~= "HUNTER" then
-					if not unithasbuff(unit, spbuff, true) then
-						table.insert(report.spbufflist, name)
-					end
-				end
-			end
-		end,
-		post = function(self, raid, report)
-			table.sort(report.spbufflist)
-		end,
-		icon = BSI[109773], -- Dark Intent
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.spbufflist, profile.checkspbuff, report.checking.spbuff or false, generic_buffers("spbuff"))
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "spbuff", player_spell("spbuff"))
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.spbufflist, nil, generic_buffers("spbuff"))
-		end,
-		singlebuff = false,
-		partybuff = false,
-		raidbuff = true,
-		raidwidebuff = true,
-		whispertobuff = generic_whispertobuff,
-	},
-
-	statbuff = {
-		order = 450,
-		list = "statbufflist",
-		check = "checkstatbuff",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = false,
-		timer = false,
-		core = true,
-		class = { DRUID = true, PALADIN = true, MONK = true },
-		buffinfo = { { "DRUID", 1126, 1 }, 
-		             { "MONK", 116781, 1, 1 }, { "MONK", 116781, 1, 3 }, -- Legacy of the White Tiger, Brewmaster/Windwalker
-			     { "MONK", 115921, 2, 2 },  -- Legacy of the Emperor, Mistweaver Only
-			     { "PALADIN", 20217, 2, nil, 19740 } },
-		chat = RAID_BUFF_1, -- "Stats"
-		pre = nil,
-		main = function(self, name, class, unit, raid, report)
-			if raid.ClassNumbers.DRUID > 0 or 
-			   raid.ClassNumbers.MONK > 0 or
-			   raid.ClassNumbers.PALADIN > 0 then
-				report.checking.statbuff = true
-				if not unithasbuff(unit, statbuff) then
-					table.insert(report.statbufflist, name)
-				end
-			end
-		end,
-		post = function(self, raid, report)
-			table.sort(report.statbufflist)
-		end,
-		icon = BSI[1126], -- Mark of the Wild
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.statbufflist, profile.checkstatbuff, report.checking.statbuff or false, generic_buffers("statbuff"))
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "statbuff", player_spell("statbuff"))
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.statbufflist, nil, generic_buffers("statbuff"))
-		end,
-		singlebuff = false,
-		partybuff = false,
-		raidbuff = true,
-		raidwidebuff = true,
-		whispertobuff = generic_whispertobuff,
-	},
 	
-	masterybuff = {
-		order = 435,
-		list = "masterybufflist",
-		check = "checkmasterybuff",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = false,
-		timer = false,
-		core = true,
-		class = { PALADIN = true },
-		buffinfo = { { "PALADIN", 19740, 1, nil, 20217 } },
-		chat = STAT_MASTERY, -- "Mastery" 
-		pre = nil,
-		main = function(self, name, class, unit, raid, report)
-			if raid.ClassNumbers.PALADIN > 1 or
-                           (raid.ClassNumbers.PALADIN == 1 and
-                            (raid.ClassNumbers.DRUID > 0 or raid.ClassNumbers.MONK > 0))
-                        then
-				report.checking.masterybuff = true
-				if not unithasbuff(unit, masterybuff, true) then
-					table.insert(report.masterybufflist, name)
-				end
-			end
-		end,
-		post = function(self, raid, report)
-			table.sort(report.masterybufflist)
-		end,
-		icon = BSI[19740], -- Blessing of Might
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.masterybufflist, profile.checkmasterybuff, report.checking.masterybuff or false, generic_buffers("masterybuff"))
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "masterybuff", player_spell("masterybuff"))
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.masterybufflist, nil, generic_buffers("masterybuff"))
-		end,
-		singlebuff = false,
-		partybuff = false,
-		raidbuff = true,
-		raidwidebuff = true,
-		whispertobuff = generic_whispertobuff,
-	},
-	
-	fortitude = {
-		order = 440,
-		list = "fortitudelist",
-		check = "checkfortitude",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		core = true,
-		class = { PRIEST = true, WARRIOR = true },
-		buffinfo = { { "PRIEST", 21562, 1 }, { "WARRIOR", 469, 2, nil, 6673 }},
-		chat = RAID_BUFF_2, -- "Stamina"
-		pre = nil,
-		main = function(self, name, class, unit, raid, report)
-			if raid.ClassNumbers.PRIEST > 0 or
-			   raid.ClassNumbers.WARRIOR > 0 then
-				report.checking.fortitude = true
-				if not unithasbuff(unit, fortitude, true) then
-					table.insert(report.fortitudelist, name)
-				end
-			end
-		end,
-		post = function(self, raid, report)
-			table.sort(report.fortitudelist)
-		end,
-		icon = BSI[21562], -- Prayer of Fortitude
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.fortitudelist, profile.checkfortitude, report.checking.fortitude or false, generic_buffers("fortitude"))
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "fortitude", player_spell("fortitude"))
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.fortitudelist, nil, generic_buffers("fortitude")) -- Prayer of Fortitude
-		end,
-		singlebuff = false,
-		partybuff = false,
-		raidbuff = true,
-		raidwidebuff = true,
-		whispertobuff = generic_whispertobuff,
-	},
-
-	critbuff = {
-		order = 434,
-		list = "critbufflist",
-		check = "checkcritbuff",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = false,
-		timer = false,
-		core = true,
-		buffinfo = { { "MAGE", 1459 }, 
-		             { "MONK", 116781, nil, 1 }, { "MONK", 116781, nil, 3 }, -- Legacy of the White Tiger, Brewmaster/Windwalker
-			   },
-		class = { MAGE = true, MONK = true },
-		chat = STAT_CRITICAL_STRIKE, -- "Critical Strike"
-		pre = nil,
-		main = function(self, name, class, unit, raid, report)
-			if report.checking.critbuff == nil then -- only scan once per report
-			  local buffers = generic_buffers("critbuff")
-			  report.checking.critbuff = ((next(buffers) and true) or false)
-			end
-			if report.checking.critbuff then
-				if not unithasbuff(unit, critbuff, true) then
-					table.insert(report.critbufflist, name)
-				end
-			end
-		end,
-		post = function(self, raid, report)
-			table.sort(report.critbufflist)
-		end,
-		icon = BSI[116781], -- Legacy of the White Tiger
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.critbufflist, profile.checkcritbuff, report.checking.critbuff or false, generic_buffers("critbuff"))
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "critbuff", player_spell("critbuff"))
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.critbufflist, nil, generic_buffers("critbuff"))
-		end,
-		singlebuff = false,
-		partybuff = false,
-		raidbuff = true,
-		raidwidebuff = true,
-		whispertobuff = generic_whispertobuff,
-	},
-
-	apbuff = {
-		order = 415,
-		list = "apbufflist",
-		check = "checkapbuff",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = false,
-		timer = false,
-		core = true,
-		buffinfo = { { "DEATHKNIGHT", 57330, 1 }, 
-		             { "WARRIOR", 6673, 2, nil, 469 }, 
-			   },
-		class = { DEATHKNIGHT = true, WARRIOR = true },
-		chat = STAT_ATTACK_POWER,      -- "Attack Power"
-		pre = nil,
-		main = function(self, name, class, unit, raid, report)
-			if raid.ClassNumbers.DEATHKNIGHT > 0 or  
-			   raid.ClassNumbers.WARRIOR > 1 or -- can have both shouts
-			   (raid.ClassNumbers.WARRIOR == 1 and -- commanding shout not needed
-			    (raid.ClassNumbers.PRIEST > 0) or (raid.ClassNumbers.WARLOCK > 0))
-			   then
-				report.checking.apbuff = true
-				if class ~= "PRIEST" and class ~= "MAGE" and class ~= "WARLOCK" then
-					if not unithasbuff(unit, apbuff, true) then
-						table.insert(report.apbufflist, name)
-					end
-				end
-			end
-		end,
-		post = function(self, raid, report)
-			table.sort(report.apbufflist)
-		end,
-		icon = BSI[57330], -- Horn of Winter
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.apbufflist, profile.checkapbuff, report.checking.apbuff or false, generic_buffers("apbuff"))
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "apbuff", player_spell("apbuff"))
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.apbufflist, nil, generic_buffers("apbuff"))
-		end,
-		singlebuff = false,
-		partybuff = false,
-		raidbuff = true,
-		raidwidebuff = true,
-		whispertobuff = generic_whispertobuff,
-	},
-
-	msbuff = { -- multistrike
-		order = 432,
-		list = "msbufflist",
-		check = "checkmsbuff",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = false,
-		timer = false,
-		core = true,
-		buffinfo = { { "WARLOCK", 109773 }, },
-		class = { WARLOCK = true },
-		chat = STAT_MULTISTRIKE,       -- "Multistrike"
-		pre = nil,
-		main = function(self, name, class, unit, raid, report)
-			if raid.ClassNumbers.WARLOCK > 0 then
-				report.checking.msbuff = true
-				if not unithasbuff(unit, msbuff, true) then
-					table.insert(report.msbufflist, name)
-				end
-			end
-		end,
-		post = function(self, raid, report)
-			table.sort(report.msbufflist)
-		end,
-		icon = BSI[166916], -- Windflurry
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.msbufflist, profile.checkmsbuff, report.checking.msbuff or false, generic_buffers("msbuff"))
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "msbuff", player_spell("msbuff"))
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.msbufflist, nil, generic_buffers("msbuff"))
-		end,
-		singlebuff = false,
-		partybuff = false,
-		raidbuff = true,
-		raidwidebuff = true,
-		whispertobuff = generic_whispertobuff,
-	},
-
-	vsbuff = { -- versatility
-		order = 431,
-		list = "vsbufflist",
-		check = "checkvsbuff",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = false,
-		timer = false,
-		core = true,
-		buffinfo = { { "DRUID", 1126 }, },
-		class = { DRUID = true },
-		chat = STAT_VERSATILITY,       -- "Versatility"
-		pre = nil,
-		main = function(self, name, class, unit, raid, report)
-			if raid.ClassNumbers.DRUID > 0 then
-				report.checking.vsbuff = true
-				if not unithasbuff(unit, vsbuff, true) then
-					table.insert(report.vsbufflist, name)
-				end
-			end
-		end,
-		post = function(self, raid, report)
-			table.sort(report.vsbufflist)
-		end,
-		icon = BSI[167187], -- Sanctity Aura
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.vsbufflist, profile.checkvsbuff, report.checking.vsbuff or false, generic_buffers("vsbuff"))
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "vsbuff", player_spell("vsbuff"))
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.vsbufflist, nil, generic_buffers("vsbuff"))
-		end,
-		singlebuff = false,
-		partybuff = false,
-		raidbuff = true,
-		raidwidebuff = true,
-		whispertobuff = generic_whispertobuff,
-	},
-
 	augmentrunes = {
 		order = 460,
 		list = "augmentruneslist",
@@ -2284,99 +1719,6 @@ local BF = {
 		singletarget = true,
 	},
 
-	dkpresence = {
-		order = 395,
-		list = "dkpresencelist",
-		check = "checkdkpresence",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = true,
-		selfonlybuff = true,
-		timer = false,
-		class = { DEATHKNIGHT = true, },
-		chat = L["Death Knight Presence"],
-		main = function(self, name, class, unit, raid, report)
-			if class ~= "DEATHKNIGHT" then
-				return
-			end
-			report.checking.dkpresence = true
-			local presence = unithasbuff(unit, dkpresences)
-			if not presence then
-				table.insert(report.dkpresencelist, name)
-			elseif (unit.istank and presence ~= blood_presence) or
-			       (not unit.istank and presence == blood_presence) then
-				table.insert(report.dkpresencelist, name.."("..presence..")")
-			end
-		end,
-		post = nil,
-		icon = BSI[48266], -- Blood presence
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.dkpresencelist, profile.checkdkpresence, report.checking.dkpresence or false, report.dkpresencelist)
-		end,
-		click = function(self, button, down)
-                        local name = UnitName("player")
-                        local spec = raid.classes.DEATHKNIGHT[name] and raid.classes.DEATHKNIGHT[name].spec
-			addon:ButtonClick(self, button, down, "dkpresence", spec and dkpresences[spec])
-		end,
-		tip = function(self)
-			addon:Tooltip(self, L["Death Knight Presence"], report.dkpresencelist)
-		end,
-		partybuff = nil,
-	},
-
-	warrstance = {
-		order = 394,
-		list = "warrstancelist",
-		check = "checkwarrstance",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = true,
-		selfonlybuff = true,
-		timer = false,
-		class = { WARRIOR = true, },
-		chat = L["Warrior Stance"],
-		main = function(self, name, class, unit, raid, report)
-			if class ~= "WARRIOR" then
-				return
-			end
-			report.checking.warrstance = true
-			local stance = unithasbuff(unit, warrstances)
-			if not stance then
-				table.insert(report.warrstancelist, name)
-			elseif (unit.istank and stance ~= defensive_stance) or
-			       (not unit.istank and stance == defensive_stance) then
-				table.insert(report.warrstancelist, name.."("..stance..")")
-			end
-		end,
-		post = nil,
-		icon = BSI[2457], -- Battle Stance
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.warrstancelist, profile.checkwarrstance, report.checking.warrstance or false, report.warrstancelist)
-		end,
-		click = function(self, button, down)
-                        local name = UnitName("player")
-                        local unit = raid.classes.WARRIOR[name]
-			addon:ButtonClick(self, button, down, "warrstance", unit and unit.istank and warrstances[1] or warrstances[2])
-		end,
-		tip = function(self)
-			addon:Tooltip(self, L["Warrior Stance"], report.warrstancelist)
-		end,
-		partybuff = nil,
-	},
-
-
 	beacon = {
 		order = 393,
 		list = "beaconlist",
@@ -2486,143 +1828,6 @@ local BF = {
 		partybuff = nil,
 	},
 
-	shadowform = {
-		order = 387,
-		list = "shadowformlist",
-		check = "checkshadowform",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = true,
-		selfonlybuff = true,
-		timer = false,
-		class = { PRIEST = true, },
-		chat = BS[15473], -- Shadowform
-		main = function(self, name, class, unit, raid, report)
-			if class == "PRIEST" then
-				if raid.classes.PRIEST[name].spec == 3 then -- Shadowform
-					report.checking.shadowform = true
-					if not unit.hasbuff[BS[15473]] then -- Shadowform
-						table.insert(report.shadowformlist, name)
-					end
-				end
-			end
-		end,
-		post = nil,
-		icon = BSI[15473], -- Shadowform
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.shadowformlist, profile.checkshadowform, report.checking.shadowform or false, report.shadowformlist)
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "shadowform", BS[15473]) -- Shadowform
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.shadowformlist)
-		end,
-		partybuff = nil,
-	},
-
-	boneshield = {
-		order = 385,
-		list = "boneshieldlist",
-		check = "checkboneshield",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = true,
-		selfonlybuff = true,
-		timer = false,
-		class = { DEATHKNIGHT = true, },
-		chat = BS[49222], -- Bone Shield
-		main = function(self, name, class, unit, raid, report)
-			if class == "DEATHKNIGHT" then
-				if raid.classes.DEATHKNIGHT[name].spec == 1 then
-					report.checking.boneshield = true
-					if not unit.hasbuff[BS[49222]] then -- Bone Shield
-						table.insert(report.boneshieldlist, name)
-					end
-				end
-			end
-		end,
-		post = nil,
-		icon = BSI[49222], -- Bone Shield
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.boneshieldlist, profile.checkboneshield, report.checking.boneshield or false, report.boneshieldlist)
-		end,
-		click = function(self, button, down)
-			addon:ButtonClick(self, button, down, "boneshield", BS[49222]) -- Bone Shield
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.boneshieldlist) -- Bone Shield
-		end,
-		partybuff = nil,
-	},
-
-	shamanshield = {
-		order = 355,
-		list = "shamanshieldlist",
-		check = "checkshamanshield",
-		default = true,
-		defaultbuff = true,
-		defaultwarning = false,
-		defaultdash = true,
-		defaultdashcombat = false,
-		defaultboss = true,
-		defaulttrash = true,
-		checkzonedout = false,
-		selfbuff = true,
-		timer = false,
-		class = { SHAMAN = true, },
-		chat = BS[52127] .. "/" .. BS[324], -- Water Shield/Lightning Shield
-		main = function(self, name, class, unit, raid, report)
-			if class ~= "SHAMAN" then
-				return
-			end
-			report.checking.shamanshield = true
-
-			local missing = true
-			if unit.hasbuff[BS[52127]] then -- Water Shield
-				missing = false
-			elseif unit.hasbuff[BS[324]] then -- Lightning Shield
-				missing = false
-			end
-			if missing then
-				table.insert(report.shamanshieldlist, name)
-			end
-		end,
-		post = nil,
-		icon = BSI[52127], -- Water Shield 
-		update = function(self)
-			addon:DefaultButtonUpdate(self, report.shamanshieldlist, profile.checkshamanshield, report.checking.shamanshield or false, report.shamanshieldlist)
-		end,
-		click = function(self, button, down)
-			local buffspell
-			local name = UnitName("player")
-			local spec = raid.classes.SHAMAN[name] and raid.classes.SHAMAN[name].spec
-			if spec == 1 or spec == 2 then
-			  buffspell = 324 -- Lightning Shield
-			elseif spec == 3 then
-			  buffspell = 52127 -- Water Shield
-			end
-			addon:ButtonClick(self, button, down, "shamanshield", buffspell)
-		end,
-		tip = function(self)
-			addon:Tooltip(self, nil, report.shamanshieldlist)
-		end,
-		partybuff = nil,
-		singletarget = true,
-	},
-
 	drumskings = {
 		order = 455,
 		list = "drumskingslist",
@@ -2717,7 +1922,7 @@ local BF = {
 		selfbuff = true,
 		selfonlybuff = true,
 		timer = false,
-		class = { WARLOCK = true, HUNTER = true, DEATHKNIGHT = true, MAGE = true, },
+		class = { WARLOCK = false, HUNTER = false, DEATHKNIGHT = false, MAGE = false, },
 		chat = BS[883]:gsub("%s*%d+$",""), -- Call Pet
 		main = function(self, name, class, unit, raid, report)
 			local needspet = false

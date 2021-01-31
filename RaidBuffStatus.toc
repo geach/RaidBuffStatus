@@ -1,7 +1,7 @@
-## Interface: 60200
+## Interface: 90000
 ## Title: RaidBuffStatus
 ## Author: Danielbarron, oscarucb
-## Version: 6.2.4
+## Version: 9.0.2
 ## X-Build: 732
 ## X-ReleaseDate: 2016-05-05T00:52:03Z
 ## X-Revision: $Revision: 719 $
@@ -20,6 +20,7 @@
 ## X-Curse-Project-Name: RaidBuffStatus
 ## X-Curse-Project-ID: raidbuffstatus
 ## X-Curse-Repository-ID: wow/raidbuffstatus/mainline
+
 
 embeds.xml
 

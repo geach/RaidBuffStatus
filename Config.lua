@@ -6,7 +6,7 @@ RBS_svnrev["Config.lua"] = select(3,string.find("$Revision: 723 $", ".* (.*) .*"
 local profile
 function addon:UpdateProfileConfig()
         profile = addon.db.profile
-	if profile.foodlevel > 125 then profile.foodlevel = 75 end -- XXX: 6.0.2 stat squish
+	if profile.foodlevel > 375 then profile.foodlevel = 75 end -- XXX: 6.0.2 stat squish
 	addon.GI.debug = profile.Debug
 end
 
@@ -122,7 +122,7 @@ local options = {
 		versions = {
 			type = 'execute',
 			name = 'versions',
-			desc = 'Lists known RBS versions which other people and I have.',
+			desc = 'Lists known RBS or RBS Continued versions which other people and I have.',
 			func = function()
 				addon:Print("Me:" .. addon.version .. " build-" .. addon.revision)
 				for name, version in pairs(addon.rbsversions) do
@@ -146,7 +146,7 @@ local options = {
 				raidleader = {
 					type = 'execute',
 					name = L["Raid leader"],
-					desc = L["This is the default configuration in which RBS ships out-of-the-box.  It gives you pretty much anything a raid leader would need to see on the dashboard"],
+					desc = L["This is the default configuration in which RBS Continued ships out-of-the-box.  It gives you pretty much anything a raid leader would need to see on the dashboard"],
 					order = 2,
 					func = function(info, v)
 						addon:SetAllOptions("raidleader")
@@ -200,7 +200,7 @@ local options = {
 							statlevelstr(profile.flixirlevel)
 						end,
 					min = 0, -- for smooth scrolling
-					max = 250,
+					max = 1300,
 					step = 1,
 					bigStep = 25,
 					get = function(info) return profile.flixirlevel end,
@@ -217,7 +217,7 @@ local options = {
 							statlevelstr(profile.foodlevel)
 						end,
 					min = 0, -- for smooth scrolling
-					max = 125,
+					max = 375,
 					step = 1,
 					bigStep = 25,
 					get = function(info) return profile.foodlevel end,
@@ -2330,13 +2330,13 @@ local options = {
 		versionannounce = {
 			type = 'group',
 			name = L["Version announce"],
-			desc = L["Tells you when someone in your party, raid or guild has a newer version of RBS installed"],
+			desc = L["Tells you when someone in your party, raid or guild has a newer version of RBS Continued installed"],
 			order = 18,
 			args = {
 				versionannounce = {
 					type = 'toggle',
 					name = L["Version announce"],
-					desc = L["Tells you when someone in your party, raid or guild has a newer version of RBS installed"],
+					desc = L["Tells you when someone in your party, raid or guild has a newer version of RBS Continued installed"],
 					order = 1,
 					get = function(info) return profile.versionannounce end,
 					set = function(info, v)
@@ -2346,7 +2346,7 @@ local options = {
 				userannounce = {
 					type = 'toggle',
 					name = L["User announce"],
-					desc = L["Tells you when someone in your party, raid or guild has RBS installed"],
+					desc = L["Tells you when someone in your party, raid or guild has RBS or RBS Continued installed"],
 					order = 2,
 					get = function(info) return profile.userannounce end,
 					set = function(info, v)
